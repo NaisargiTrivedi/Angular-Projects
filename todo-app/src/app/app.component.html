@@ -1,0 +1,9 @@
+<div class="container">
+  <app-add-todo (addTodoEvent)="addTodo($event)"></app-add-todo>
+  <app-todo-list
+    [todos]="todos"
+    (deleteTodoEvent)="deleteTodo($event)"
+    (doneTodoEvent)="toggleTodo($event)"
+    (updateTodoEvent)="updateTodo($event)"
+  ></app-todo-list>
+</div>

@@ -1,0 +1,22 @@
+<div class="list-group my-5">
+  <div *ngIf="todos.length === 0">
+    <h3>No Todos made!, Add a new Todo using above form.</h3>
+  </div>
+  <div class="list-group-item list-group-item-action" *ngFor="let item of todos">
+    <input class="form-check-input me-1 me-2" type="checkbox" value="" id="firstCheckbox"
+      (click)="doneTodoHandler(item)" [checked]="!item.isActive">
+    <span class="fs-6">Done</span>
+    <div class="row">
+      <div class="col-md-10 col-8">
+        <p class="mb-0 fw-bold fs-4" [ngClass]="{'strike': !item.isActive}">{{ item.title }}</p>
+        <p class="mb-1" [ngClass]="{'strike': !item.isActive}">{{ item.desc }}</p>
+        <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodoHandler(item)">
+          Delete
+        </button>
+      </div>
+      <div class="col-md-2 col-4">
+        <p class="mb-1">Created At: {{item.createdDate}}</p>
+        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" [attr.data-bs-target]="'#updateModal' + item.id">Edit</button>
+      </div>
+      <app-form-modal [todo]="item" (updateTodoEvent)="updateTodoEventHandler($event)"></app-form-modal>
+    </div>

@@ -1,0 +1,13 @@
+1. Interpolation ({{}}) - Works only for string values
+2. Property Binding ([propertyName]="value") or (bind-property="value") - Works for all types of values
+3. ngIf, ngFor, ngClass
+4. @Input, @Output and EventEmitter for component interaction
+5. Creating Components using command (ng g c "componentname with path(if any)) .... ANgular CLI
+6. Integrating and using bootstrap with angular (Adding style and jquery paths in angular.json file)
+7. Stored data to localStorage
+8. Event Binding (Ex : <h2 (click)="func()"></h2>)
+9. Style Binding(for inline style) : <h2 [style.color]="hasError ? 'red' : 'green'">Text.....</h2>
+10. ngStyle : <h2 ngStyle="styles">Tect......</h2> ; where styles is an object of CSS properties, passed from the component.
+11. ngSubmit, ngModule(Used to send data from view(html) to class), including FormsModule in app.module.ts
+12. ngSwitch
+13. Pipes : https://www.youtube.com/watch?v=y8lwG8IM82k&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ&index=16 (Used to format string,numbers, currency, date and much more at view(html) level before display)
