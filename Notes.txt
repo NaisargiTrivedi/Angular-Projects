@@ -1,0 +1,101 @@
+-> Google introduced Angular.
+-> Angular is a typescript based framework used to build SPA.
+----------------------------------Important Links----------------------------------
+-> https://angular.io/cli
+-> https://www.youtube.com/watch?v=0LhBvp8qpro
+-> https://www.youtube.com/watch?v=CGLdH5ORX-Y
+
+>> Topics :
+1. Setup Angular
+2. Add dynamic data in angular html file
+3. Data sharing between components
+4. Angular directives
+5. Angular pipes
+6. Angular services
+7. Angular form types
+8. Life cycle methods
+9. Interview Questions
+-------------------------------------Setup Angular---------------------------------
+1. Install NodeJS
+2. Open CMD in Administrator and install using angular CLI command.
+3. Open the project folder and use predefined angular commands to create project structure.
+
+------------------------Add dynamic data in angular html file---------------------
+1. String interpolation 
+	- Ex: <p>{{title}}</p>, <img src="{{imgUrl}}"></img>
+	- It is a one way binding.
+2. Property binding
+	- Ex: <img [src]="imgUrl"></img>, <app-child [title]="title"></app-child>
+	- Used to give dynamic values to the html tag attributes and custom attributes in components. It's advisable to use property binding for dynamic attributes rather than using string interpolation.
+	- It is a one way binding.
+3. Class binding
+	- componentFile: bool:boolean = true;
+	- templateFile: <p [class.textRed]="bool">Conditionally class applied</p>
+	- In the .css file we have defined a class that will be applied to p tag only if the value of bool is true. 
+4. Style binding
+	- Ex: <p [style.color]="bool ? 'red' : ''"></p>
+5. Event binding
+	- Ex: <button (click)="onClickFunc()"></button>
+	- This onClickFunc() is created inside the componentFile.
+	- (keyup) event
+	- (keyup.enter) event -- Event filtering (The function will be called only if enter key is pressed.)
+6. Template variable
+	- Ex: <input type="text" (keyup)="func(username.value)" #username/>
+	- Instead of passing func($event) to get its value in componentFile we can use template variable like above.
+7. Two way binding
+	- Ex: <input type="text" [(ngModel)]="username"/>
+	- Here, username is a property defined in componentFile.
+	
+----------------------------Data sharing between components-----------------------
+1. Parent to child
+	- componentFile(parent): title:string = "Hello child!";
+	- templateFile(parent) : <app-child [title]="title"></app-child>
+	- componentFile(child) : @Input title: string;
+	Now by adding title in componentFile of child using @Input decorator, we can use this property in its templateFile.
+2. Child to parent
+	- Two ways are there : 
+	a. Using @ViewChild decorator
+	- componentFile(parent) : @ViewChild(ComponentName) child;
+	- The properties of this child component can be accessed inside onAfterViewInit() lifecycle method. We can assign it to another property and use it in templateFile using string interpolation.
+	b. When their is an event that using @Output decorator and emit() function.
+	- Check todo practice project for usage.
+3. Between siblings
+4. Across the application
+
+---------------------------------Angular directives-------------------------------
+>> Directives are components without view
+>> Their are 4 types :
+	1. Component Directive (angular components)
+	2. Structural Directive (leading * symbol)
+		- ngFor, ngIf, ngTemplate, ngSwitch, ngModel, ngForm, ngSubmit
+		- It is responsible for manipulating DOM by adding/removing etc elements
+	3. Attribute Directive
+		- [ngStyle], [ngClass]
+		- Changes look or appearance of DOM
+	4. Custom Directive
+	
+------------------------------------Angular pipes---------------------------------
+1. UpperCase pipe
+2. LoweCase pipe
+3. Decimal/Number pipe
+4. Currency pipe
+5. Date pipe
+6. JSON pipe
+7. Percent pipe
+8. Slice pipe
+9. Custom pipes
+
+-----------------------------------Angular services-------------------------------
+>> We use angular services to share data and common methods between components which have no direct relation with each other.
+>> For Ex: Consider two different components which are having same onClick method so instead of defining it 2 times in two components we can write it in a CommonService and use it in these 2 components. 
+
+----------------------------------Angular form types------------------------------
+1. Template driven approach 
+	- All the validation related stuff is handled from templateFile, no need to write any validation code in typescript componentFile.
+2. Reactive form approach
+---------------------------------Life cycle methods-------------------------------
+1.
+--------------------------------Interview Questions-------------------------------
+1. Difference between angular component constructor and ngOnInit(). Why they cannot be used interchangebly?
+---https://www.tutorialspoint.com/difference-between-constructor-and-ngoninit-in-angular-8
+

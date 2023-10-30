@@ -1,0 +1,17 @@
+<div class="center">
+    <h1>Post Form</h1>
+    <input type="text" placeholder="Post Title" [(ngModel)]="title"/>
+    <input type="text" placeholder="Post Description" [(ngModel)]="description"/>
+    <input type="text" placeholder="Post Image URL" [(ngModel)]="imgUrl"/>
+    <input type="text" placeholder="Post URL" [(ngModel)]="siteUrl"/>
+    <div>
+        <input type="checkbox" [(ngModel)]="addBgColor"/>
+        <span>Add Background</span>
+    </div>
+    <div>
+        <p [class.add-bg-color]="addBgColor">{{title}}</p>
+        <p [class.add-bg-color]="addBgColor">{{description}}</p>
+        <img [src]="imgUrl" [class.display-none]="imgUrl ? false : true"/>
+        <p><a [href]="siteUrl" target="_blank">{{siteUrl}}</a></p>
+    </div>
+</div>

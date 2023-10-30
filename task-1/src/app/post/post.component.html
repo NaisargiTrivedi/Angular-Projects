@@ -1,0 +1,17 @@
+<div class="center">
+    <h1>Post Form</h1>
+    <input type="text" placeholder="Post Title" (keyup)="setTitle(pTitle.value)" #pTitle/>
+    <input type="text" placeholder="Post Description" (keyup)="setDesc(pDesc.value)" #pDesc/>
+    <input type="text" placeholder="Post Image URL" (keyup)="setImgUrl(pImgUrl.value)" #pImgUrl/>
+    <input type="text" placeholder="Post URL" (keyup)="setSiteUrl(pSiteUrl.value)" #pSiteUrl/>
+    <div>
+        <input type="checkbox" (change)="addBg($event)"/>
+        <span>Add Background</span>
+    </div>
+    <div>
+        <p [class.add-bg-color]="addBgColor">{{title}}</p>
+        <p [class.add-bg-color]="addBgColor">{{description}}</p>
+        <img [src]="imgUrl" [class.display-none]="blockDisplay"/>
+        <p><a [href]="siteUrl">{{siteUrl}}</a></p>
+    </div>
+</div>
