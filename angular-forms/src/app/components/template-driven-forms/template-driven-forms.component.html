@@ -1,0 +1,52 @@
+<div class="d-flex flex-column align-items-center mt-3 container ">
+    <p class="fw-bold fs-3">Template driven forms</p>
+    <form #f="ngForm" (ngSubmit)="save(f)" class="form-group text-center ">
+        <input 
+        type="text" 
+        name="name" 
+        id="name" 
+        class="form-control " 
+        placeholder="name" 
+        ngModel #name='ngModel'         
+        required/>
+        <div [ngClass]="{'d-block': name.invalid && (name.touched)}" class="error-msg">Name is required.</div>
+        <input 
+        type="email" 
+        name="email" 
+        id="email" 
+        class="form-control " 
+        placeholder="email"
+        ngModel #email='ngModel' 
+        email
+        required/>
+        <div [ngClass]="{'d-block': email.invalid && (email.touched)}" class="error-msg">Email is required.</div>
+        <textarea 
+        name="address" 
+        id="address" 
+        cols="30" rows="10" 
+        class="form-control " 
+        placeholder="address" 
+        ngModel #address='ngModel' 
+        required></textarea>
+        <div [ngClass]="{'d-block': address.invalid && (address.touched)}" class="error-msg">Address is required.</div>
+        <button type="submit" [disabled]="f.invalid">Save</button>
+    </form>
+    <table class="table table-hover ">
+        <thead>
+            <tr>
+                <th scope="col">id</th>                
+                <th scope="col">name</th>
+                <th scope="col">email</th>
+                <th scope="col">address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of data; index as key">
+                <td scope="row">{{ key+1 }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.address }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

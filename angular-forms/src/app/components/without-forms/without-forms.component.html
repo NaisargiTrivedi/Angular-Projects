@@ -1,0 +1,25 @@
+<div class="d-flex flex-column gap-3 align-items-center mt-3 container ">
+    <p class="fw-bold fs-3">Without Form Types</p>
+    <input type="text" name="name" id="name" class="w-25" [(ngModel)]="name" />
+    <input type="text" name="email" id="email" class="w-25" [(ngModel)]="email" />
+    <textarea name="address" id="address" cols="30" rows="10" class="w-25" [(ngModel)]="address"></textarea>
+    <button (click)="save()">Save</button>
+    <table class="table table-hover ">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">email</th>
+                <th scope="col">address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of data; index as key">
+                <td scope="row">{{ key+1 }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.address }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
