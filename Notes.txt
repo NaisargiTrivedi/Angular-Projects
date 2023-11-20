@@ -92,7 +92,10 @@
 ----------------------------------Angular form types------------------------------
 1. Template driven approach 
 	- All the validation related stuff is handled from templateFile, no need to write any validation code in typescript componentFile.
+	- Custom directives are used for custom validation.
 2. Reactive form approach
+	- Most of the validation related stuff is handled from typescript componentFile using FormGroup and FormControl class.
+	- We can make a custom validator.
 ---------------------------------Life cycle methods-------------------------------
 1.
 --------------------------------Interview Questions-------------------------------

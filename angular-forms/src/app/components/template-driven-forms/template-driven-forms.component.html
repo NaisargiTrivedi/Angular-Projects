@@ -8,8 +8,11 @@
         class="form-control " 
         placeholder="name" 
         ngModel #name='ngModel'         
-        required/>
-        <div [ngClass]="{'d-block': name.invalid && (name.touched)}" class="error-msg">Name is required.</div>
+        required
+        minlength="5"/>
+        <!-- <div [ngClass]="{'d-block': name.invalid && (name.touched)}" class="error-msg">Name is required.</div> -->
+        <div class="alert alert-danger" *ngIf="name.invalid && name.touched && name.errors?.['required']">Name is required.</div>
+        <div class="alert alert-danger" *ngIf="name.invalid && name.touched && name.errors?.['minlength']">Name must of minimum 5 letters.</div>
         <input 
         type="email" 
         name="email" 
